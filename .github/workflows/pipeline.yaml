@@ -29,8 +29,7 @@ jobs:
 
       - name: Run tests
         run: |
-          docker compose exec app bash
-          ls
+          docker compose exec app bash && ls
           ./vendor/bin/pest --init
           composer pest
   
