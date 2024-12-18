@@ -9,6 +9,7 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
+        command: composer install
         container_name: api_laravel
         restart: unless-stopped
         working_dir: /var/www/
