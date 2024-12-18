@@ -30,6 +30,7 @@ jobs:
       - name: Access container app and run composer install and tests
         run: |
           docker compose exec app bash
+          ls
           composer install
           compose pest
   
