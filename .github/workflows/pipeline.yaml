@@ -28,8 +28,8 @@ jobs:
           down-flags: "--volumes"
           test-container: "app"
           test-command: |
-            composer install
-            composer pest
+            "composer install"
+            "composer pest"
   
   cd:
     needs: ci
