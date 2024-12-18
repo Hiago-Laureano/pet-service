@@ -9,7 +9,7 @@ on:
       - master
 
 jobs:
-  ci:
+  CI:
     runs-on: ubuntu-latest
 
     env:
@@ -19,25 +19,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install docker compose
-        uses: KengoTODA/actions-setup-docker-compose@v1
+      - name: Tests
+        uses: cloudposse/github-action-docker-compose-test-run@main
         with:
-          version: "2.30.1"
-
-      - name: Run docker compose up
-        run: |
-          docker compose up -d --build
-          docker compose exec app bash
-          ls
-
-      - name: Run tests
-        run: |
-          docker compose exec app bash
-          ./vendor/bin/pest --init
-          composer pest
+          file: docker-compose.yml
+          service: app
+          command: |
+            ls
+            .vendor/bin/pest --init
+            composer pest
   
-  cd:
-    needs: ci
+  CD:
+    needs: CI
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to production
