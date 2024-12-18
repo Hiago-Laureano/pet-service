@@ -25,7 +25,7 @@ jobs:
           version: "2.14.2"
 
       - name: Up docker compose
-        run: docker compose up -d
+        run: docker compose up -d --build
 
       - name: Run tests
         run: |
