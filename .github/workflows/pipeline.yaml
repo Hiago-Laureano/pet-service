@@ -25,7 +25,7 @@ jobs:
         with:
           file: docker-compose.yml
           service: app
-          command: bash -c "composer install && composer pest"
+          command: composer install && composer pest
   
   cd:
     needs: ci
