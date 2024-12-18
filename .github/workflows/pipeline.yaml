@@ -22,12 +22,12 @@ jobs:
 
       - name: Install dependecies and execute tests in docker compose
         uses: adambirds/docker-compose-action@v1.5.0
-          with:
-            compose-file: "docker-compose.yml"
-            up-flags: "--build"
-            down-flags: "--volumes"
-            test-container: "app"
-            test-command: "composer install && composer pest"
+        with:
+          compose-file: "docker-compose.yml"
+          up-flags: "--build"
+          down-flags: "--volumes"
+          test-container: "app"
+          test-command: "composer install && composer pest"
   
   cd:
     needs: ci
