@@ -27,12 +27,10 @@ jobs:
       - name: Up docker compose
         run: docker compose up -d
 
-      - name: Access container app and run composer install and tests
+      - name: Run tests
         run: |
           docker compose exec app bash
-          composer update
-          composer install
-          compose pest
+          composer pest
   
   cd:
     needs: ci
