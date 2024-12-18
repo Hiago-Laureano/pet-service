@@ -24,8 +24,8 @@ jobs:
         uses: cloudposse/github-action-docker-compose-test-run@main
         with:
           file: docker-compose.yml
-          service: app
           command: |
+            docker compose exec app bash
             composer install
             composer pest
   
