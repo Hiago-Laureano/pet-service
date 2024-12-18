@@ -21,6 +21,8 @@ jobs:
 
       - name: Install docker compose
         uses: KengoTODA/actions-setup-docker-compose@v1
+        with:
+          version: "2.14.2"
 
       - name: Access container app
         run: docker compose exec app bash
