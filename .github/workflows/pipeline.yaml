@@ -13,19 +13,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Copy files
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
 
       - name: Run docker compose
-      - run: docker composer up -d
+        run: docker composer up -d
 
       - name: Enter container app
-      - run: docker compose exec app bash
+        run: docker compose exec app bash
 
       - name: Install dependencies
-      - run: composer install
+        run: composer install
 
       - name: Run tests
-      - run: composer pest
+        run: composer pest
   
   cd:
     needs: ci
