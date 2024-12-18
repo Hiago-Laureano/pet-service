@@ -27,7 +27,7 @@ jobs:
             up-flags: "--build"
             down-flags: "--volumes"
             test-container: "app"
-            test-command: composer install && composer pest"
+            test-command: "composer install && composer pest"
   
   cd:
     needs: ci
