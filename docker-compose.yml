@@ -18,7 +18,7 @@ services:
             - db
         networks:
             - laravel
-        command: bash -c "composer install && ./vendor/bin/pest --init"
+        command: composer install
 
     nginx:
         image: nginx:alpine
