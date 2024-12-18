@@ -9,7 +9,6 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-        command: composer install
         container_name: api_laravel
         restart: unless-stopped
         working_dir: /var/www/
@@ -19,6 +18,7 @@ services:
             - db
         networks:
             - laravel
+        command: composer install
 
     nginx:
         image: nginx:alpine
