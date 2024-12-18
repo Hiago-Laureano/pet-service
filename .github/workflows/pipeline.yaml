@@ -27,6 +27,7 @@ jobs:
       - name: Run docker compose up
         run: |
           docker compose up -d --build
+          docker compose exec app bash
           ls
 
       - name: Run tests
