@@ -20,16 +20,12 @@ jobs:
       - name: Copy files
         uses: actions/checkout@v3
 
-      - name: Run docker compose
-        uses: hoverkraft-tech/compose-action@v2.0.1
+      - name: Install dependecies and execute tests in docker compose
+        uses: cloudposse/github-action-docker-compose-test-run@main
         with:
-          compose-file: "docker-compose.yml"
-
-      - name: Install dependecies and execute tests in the running services
-        run: |
-          docker compose exec app bash
-          composer install
-          composer pest
+          file: docker-compose.yml
+          service: app
+          command: bash -c "composer install && composer pest"
   
   cd:
     needs: ci
