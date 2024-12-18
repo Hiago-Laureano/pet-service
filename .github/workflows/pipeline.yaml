@@ -17,17 +17,19 @@ jobs:
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
     steps:
-      - name: Copy files
         uses: actions/checkout@v3
 
-      - name: Install dependecies and execute tests in docker compose
-        uses: cloudposse/github-action-docker-compose-test-run@main
-        with:
-          file: docker-compose.yml
-          command: |
-            docker compose exec app bash
-            composer install
-            composer pest
+      - name: Install docker compose
+        uses: KengoTODA/actions-setup-docker-compose@v1
+
+      - name: Access container app
+        run: docker compose exec app bash
+
+      - name: Run composer install
+        run: composer install
+
+      - name: Run tests
+        run: composer install
   
   cd:
     needs: ci
