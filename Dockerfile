@@ -46,6 +46,4 @@ COPY . .
 # Install dependencies
 RUN composer install
 
-RUN ls
-
 USER $user
