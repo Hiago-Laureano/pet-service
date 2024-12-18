@@ -19,6 +19,9 @@ jobs:
         uses: hoverkraft-tech/compose-action@v2.0.1
         with:
           compose-file: "docker-compose.yml"
+        env:
+          DB_DATABASE: ${{ secrets.DB_DATABASE }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
       - name: Install dependecies and execute tests in the running services
         run: |
