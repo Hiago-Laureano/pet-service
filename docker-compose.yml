@@ -36,7 +36,6 @@ services:
         image: mysql:8.3.0
         container_name: mysql_laravel
         restart: unless-stopped
-        env_file: .env
         environment:
             MYSQL_DATABASE: ${DB_DATABASE}
             MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
