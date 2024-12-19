@@ -26,7 +26,7 @@ jobs:
         run: docker compose up -d
 
       - name: Run tests
-        run: docker compose exec app composer pest
+        run: docker compose exec app php artisan test
   
   CD:
     needs: CI
