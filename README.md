@@ -48,6 +48,11 @@ composer install
 php artisan key:generate
 ```
 
+### Faça a migração de dados
+```sh
+php artisan migrate
+```
+
 ### Acessar a API
 
 A API estará rodando no http://localhost
