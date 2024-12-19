@@ -41,9 +41,4 @@ WORKDIR /var/www
 # Copy custom configurations PHP
 COPY docker/php/custom.ini /usr/local/etc/php/conf.d/custom.ini
 
-COPY . .
-
-# Install dependencies
-RUN composer install
-
 USER $user
