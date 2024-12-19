@@ -25,11 +25,13 @@ jobs:
           version: "2.30.1"
 
       - name: Run docker compose up
-        run: docker compose up -d --build
+        run: |
+          docker compose up -d
+          docker compose exec app ls
 
       - name: Run tests
         run: |
-          docker compose exec app cd .. && ls
+          docker compose exec app ls
           docker compose exec app ./vendor/bin/pest --init
           docker compose exec app composer pest
   
