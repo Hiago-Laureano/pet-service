@@ -23,15 +23,10 @@ jobs:
         uses: docker/setup-docker-action@v4
 
       - name: Run docker compose up
-        run: |
-          docker compose up -d
-          docker compose exec app ls -a
+        run: docker compose up -d
 
       - name: Run tests
-        run: |
-          docker compose exec app ls
-          docker compose exec app ./vendor/bin/pest --init
-          docker compose exec app composer pest
+        run: docker compose exec app composer pest
   
   CD:
     needs: CI
