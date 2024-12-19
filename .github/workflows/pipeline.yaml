@@ -19,10 +19,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install docker compose
-        uses: KengoTODA/actions-setup-docker-compose@v1
-        with:
-          version: "2.30.1"
+      - name: Install Docker
+        uses: docker/setup-docker-action@v4
 
       - name: Run docker compose up
         run: |
