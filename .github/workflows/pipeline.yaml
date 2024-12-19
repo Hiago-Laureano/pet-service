@@ -19,15 +19,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Tests
-        uses: cloudposse/github-action-docker-compose-test-run@main
+      - name: Install docker compose
+        uses: KengoTODA/actions-setup-docker-compose@v1
         with:
-          file: docker-compose.yml
-          service: app
-          command: |
-            ls
-            .vendor/bin/pest --init
-            composer pest
+          version: "2.30.1"
+
+      - name: Run docker compose up
+        run: docker compose up -d --build
+
+      - name: Run tests
+        run: |
+          docker compose exec app ./vendor/bin/pest --init
+          docker compose exec app composer pest
   
   CD:
     needs: CI
