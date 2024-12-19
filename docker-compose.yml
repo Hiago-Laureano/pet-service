@@ -18,7 +18,6 @@ services:
             - db
         networks:
             - laravel
-        command: composer install
 
     nginx:
         image: nginx:alpine
